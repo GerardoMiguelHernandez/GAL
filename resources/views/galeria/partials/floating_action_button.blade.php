@@ -77,9 +77,24 @@
               {!! Form::label('direccion','Direccion',['class'=>'center'])!!}
             </div>
 
-<div class="input-field col s12">
+ <!--<div class="input-field col s12">
 {!!Form::text('region',null,['class'=>'validate','id'=>'region'])!!}
 {!!Form::label('region','Region',['class'=>'center'])!!} 
+  </div> -->
+
+   <div class="input-field col s12">
+    <select name="region">
+      <option value="" disabled selected>Elige region</option>
+      <option value="Cañada">Cañada</option>
+      <option value="Costa">Costa</option>
+      <option value="Sierra Norte">Sierra Norte</option>
+      <option value="Sierra Sur">Sierra Sur</option>
+      <option value="Istmo">Istmo</option>
+      <option value="Valles Centrales">Valles Centrales</option>
+      <option value="Papaloapan">Papaloapan</option>
+      <option value="Mixteca">Mixteca</option>
+    </select>
+    <label class="center">Region</label>
   </div>
 
 

@@ -2,8 +2,9 @@
 <link rel="stylesheet" href="{{ asset('css/materialize.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/index.css') }}">
 @endsection
-<div class="container">
-<nav class="top-nav white scrollTo" style="border-radius: 25px;">
+
+ <div class="navbar-fixed">
+<nav class="top-nav white scrollTo"
     <div class="nav-wrapper">
       <a href="#!" class="brand-logo">
 
@@ -52,6 +53,7 @@
     </div>
   </nav>
   </div>
+  
 @section('js')
 <script src="{{ asset('js/jquery.min.js') }}"></script>
 	<script src="{{ asset('js/materialize.js') }}"></script>

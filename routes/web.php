@@ -11,7 +11,7 @@
 |
 */
 Route::get('fotorama', function () {
-    return view('template.eventos.index');
+    return view('admin.eventos.index');
 });
 
 Route::get('/', ['as' => 'home', 'uses' => 'WelcomeController@index']);

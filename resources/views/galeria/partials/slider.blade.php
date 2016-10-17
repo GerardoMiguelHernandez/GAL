@@ -1,5 +1,8 @@
 @extends('galeria.main')
 @section('title','Home')
+@section('css')
+  {!! Html::style('css/animate.css'); !!}
+@endsection
 @section('content')
 <!--
   <div class="slider">
@@ -24,9 +27,12 @@
 <div class="fotorama"
      data-nav="thumbs" data-width="100%" data-ratio="700/467" data-max-width="100%" data-keyboard="true"  data-allowfullscreen="native" data-autoplay="true">
   @foreach($even as $ev)
-<img src="{{$ev->imagen}}"></a>
+<img src="/uploads/{{$ev->imagen}}"></a>
   @endforeach
-</div></div></div></d
+</div>
+</div>
+</div>
+</div>
 
 <div>
     <div class="section">
@@ -82,11 +88,11 @@
   </div>
 
 <div class="row">
-@foreach($eventicos as $eventico)
+@foreach($alleventos as $eventico)
 <div class="col s12 m6 s6">
   <div class="card medium">
     <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator responsive-img" src="{{$eventico->imagen}}">
+      <img class="activator responsive-img" src="/uploads/{{$eventico->imagen}}">
     </div>
     <div class="card-content">
       <span class="card-title activator grey-text text-darken-4"><i class="material-icons right">more_vert</i></span>
@@ -247,11 +253,18 @@
 @section('js')
 
 {!! Html::script('js/jquery.jrumble.1.3.js'); !!}
-
+{!! Html::script('js/wow.min.js'); !!}
 <script type="text/javascript">
 // Demo 5
 $(function(){
 
+  $('#w').hover.css({'background':'orange'});
+  $('#contenido').addClass('titulo');
+wow = new WOW({
+animateClass:'animated',
+offset:100,
+});
+wow.init();
 $('.iconSobre').jrumble({
         x: 6,
 	y: 6,

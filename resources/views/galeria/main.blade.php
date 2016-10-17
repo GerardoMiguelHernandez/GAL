@@ -5,7 +5,8 @@
 	<title>@yield('title', 'Home')</title>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
-	{!! Html::style('css/least.min.js'); !!}
+
+  {!! Html::style('css/least.min.css'); !!}
 	<link rel="stylesheet" href="{{ asset('css/materialize.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/index.css') }}">
 <link rel="stylesheet" href="{{ asset('css/font-awesome.css') }}">
@@ -44,6 +45,7 @@
 	<script src="{{ asset('js/materialize.js') }}"></script>
   <script src="{{ asset('js/fotorama.js') }}"></script>
   {!! Html::script('js/dropzone.js'); !!}
+
   {!! Html::script('js/least.js'); !!}
 	<script type="text/javascript">
 		
@@ -72,6 +74,7 @@
   });
 
 $('.least-gallery').least();
+$(".button-collapse").sideNav();
 	</script>
 	@yield('js')
 </body>

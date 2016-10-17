@@ -120,8 +120,8 @@
         @foreach($alleventos as $allevento)
 
             <div data-p="150.00" style="display: none;">
-                <img data-u="image" src="/uploads/{{'event_'.$allevento->imagen}}" />
-                <img data-u="thumb" src="/uploads/{{'event_'.$allevento->imagen}}" />
+                <img data-u="image" src="/uploads/{{$allevento->imagen}}" />
+                <img data-u="thumb" src="/uploads/{{$allevento->imagen}}" />
             </div>
            @endforeach
         </div>
@@ -142,6 +142,61 @@
         <span data-u="arrowleft" class="jssora05l" style="top:158px;left:248px;width:40px;height:40px;" data-autocenter="2"></span>
         <span data-u="arrowright" class="jssora05r" style="top:158px;right:8px;width:40px;height:40px;" data-autocenter="2"></span>
     </div>
+
+
+
+<div class="row">
+@foreach($alleventos as $eventico)
+<div class="col s12 m6 s6">
+  <div class="card medium">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator responsive-img" src="/uploads/{{$eventico->imagen}}">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4"><i class="material-icons right">more_vert</i></span>
+          <h5 class="header center teal-text text-darken-4">{{$eventico->nombre}}</h5>
+      <p class="darken-4 blue-text">
+       <strong> Categoria:</strong> {{$eventico->categoria->nombre}}<br>
+       <strong> Creado:</strong> {{$eventico->created_at->diffForHumans()}}
+</p>
+ </div>
+    <div class="card-reveal z-depth 5">
+      <span class="card-title grey-text text-darken-4">{{$eventico->nombre}}<i class="material-icons right">close</i></span>
+      <p>
+<ul class="collapsible popout" data-collapsible="accordion">
+    <li>
+      <div class="collapsible-header"><i class="material-icons teal600">date_range</i>Descripcion</div>
+      <div class="collapsible-body"><p>{{$eventico->descripcion}}</p></div>
+    </li>
+    <li>
+    <div class="collapsible-header"><i class="material-icons teal600">date_range</i>Fecha</div>
+      <div class="collapsible-body"><p>{{$eventico->fecha}}</p></div>
+    </li>
+    <li>
+    <div class="collapsible-header"><i class="material-icons teal600">date_range</i>Lugar</div>
+      <div class="collapsible-body"><p>{{$eventico->fecha}}</p></div>
+    </li>
+     <li>
+    <div class="collapsible-header"><i class="material-icons teal600">date_range</i>Encargado</div>
+      <div class="collapsible-body"><p>{{$eventico->encargado}}</p></div>
+    </li>
+     <li>
+    <div class="collapsible-header"><i class="material-icons teal600">date_range</i>Categoria</div>
+      <div class="collapsible-body"><p>{{$eventico->categoria->nombre}}</p></div>
+    </li>
+    <li>
+    <div class="collapsible-header"><i class="material-icons teal600">date_range</i>Centro Organizador</div>
+      <div class="collapsible-body"><p>{{$eventico->centro->nombre}}</p></div>
+    </li>
+  </ul>
+      </p>
+    </div>
+  </div>
+  </div>
+ 
+          @endforeach
+           </div>
+
 @endsection
 
 @section('js')

@@ -5,7 +5,7 @@
      <div class="fotorama"
      data-nav="thumbs" data-width="100%" data-ratio="700/467" data-max-width="100%" data-keyboard="true"  data-allowfullscreen="native" data-autoplay="true">
   @foreach($alleventos as $allevento)
-<img src="uploads/{{'event_'.$allevento->imagen}}"></a>
+<img src="uploads/{{$allevento->imagen}}"></a>
   @endforeach
      </div>
   </div>
@@ -19,7 +19,7 @@
         	<div class="col s12 m6 l6">
         		<div class="card medium blue-grey darken-1">
                  <div class="card-content">
-                <img src="uploads/{{'event_'.$allevento->imagen}}" class="img-responsive">
+                <img src="{{$allevento->imagen}}" class="img-responsive">
         		</div>
         		<div class="card-action">
         		<p class="darken-4 blue-text">

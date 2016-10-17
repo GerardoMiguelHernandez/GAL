@@ -55,6 +55,26 @@ class AlbumController extends Controller
    $album->save();
 
 
+$id = Album::orderBy('created_at','DES')->first();
+$codigo=$id->id;
+
+
+$files = $request->file('file');
+//dd($files);
+
+foreach($files as $fil){
+
+$imagen = new Imagen();
+                $image1 = Image::make($fil)->resize(506,295);
+               // $fileName = $file->getClientOriginalName();
+                $image1->save($path.'imagen_'.$fil->getClientOriginalName());
+                $imagen->imagen=$fil->getClientOriginalName();
+                $imagen->album_id=$codigo;
+                $imagen->save();
+                //$file->move($path, $fileName);
+
+
+            }  
  
 
 
