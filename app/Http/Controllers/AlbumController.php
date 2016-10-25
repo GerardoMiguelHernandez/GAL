@@ -55,6 +55,7 @@ class AlbumController extends Controller
       $file =$request->file('imagen');
       $path = public_path().'/uploads/';
       $path1 = public_path().'/thumbnails/';
+      $path2 = public_path().'/nueva/';
    //$image->save($path.$file->getClientOriginalName());
    $image = Image::make($file)->resize(506,295);
     //$image = Image::make($file);
@@ -77,7 +78,9 @@ $files = $request->file('file');
 foreach($files as $fil){
 
 $imagen = new Imagen();
-                $image1 = Image::make($fil)->resize(506,295);
+                $image3 = Image::make($fil);
+                $image3->save($path2.'imagen_'. time() .$fil->getClientOriginalName());
+                $image1 = Image::make($fil)->resize(270,180);
                // $fileName = $file->getClientOriginalName();
                 $image2 = Image::make($fil)->resize(120,87);
                 $image2->save($path1.'imagen_'. time() .$fil->getClientOriginalName());

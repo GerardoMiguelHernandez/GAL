@@ -8,6 +8,7 @@ use App\Http\Requests;
 
 use App\Categoria;
 use Carbon\Carbon;
+use App\Evento;
 
 class CategoriasController extends Controller
 {
@@ -75,6 +76,10 @@ $category->save();
      */
     public function show($id)
     {
+        $category = Categoria::find($id);
+        $event = Evento::where('categoria_id', $category->id)->get();
+        //dd($event);
+        return view('template.categoriaevento')->with(['category'=>$category, 'event'=>$event]);
         //
     }
 

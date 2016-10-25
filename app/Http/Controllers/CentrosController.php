@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\CentroModel;
+use App\Evento;
 class CentrosController extends Controller
 {
     /**
@@ -63,6 +64,14 @@ return redirect()->action('WelcomeController@index');
      */
     public function show($id)
     {
+        //dd($id);
+    $centro = CentroModel::find($id);
+
+$event = Evento::where('centroOrganizador', $centro->id)->get();
+
+//dd($event);
+
+       return view('template.detallecentro')->with(['centro'=>$centro, 'event'=> $event]);
         //
     }
 

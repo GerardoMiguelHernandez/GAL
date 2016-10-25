@@ -19,6 +19,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+        /*
         $albums = Album::all();
         $categories = Categoria::all();
         $centers= CentroModel::all();
@@ -32,7 +33,7 @@ class AppServiceProvider extends ServiceProvider
                 View::share('alleventos', $alleventos);
                  View::share('albums', $albums);
                  View::share('sliders', $sliders);
-                 View::share('imagenes', $imagenes);
+                 View::share('imagenes', $imagenes);*/
             }
 
     /**

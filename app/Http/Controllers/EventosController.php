@@ -26,9 +26,10 @@ class EventosController extends Controller
     public function index()
     {
         //
+        $eventos = Evento::orderBy('created_at', 'DES')->get();
 
 
-        return view('admin.eventos.index');
+        return view('template.eventos')->with('eventos', $eventos);
     }
 
     /**
@@ -59,8 +60,8 @@ return view('admin.eventos.portada');
     
    $path = public_path().'/uploads/';
    //$image->save($path.$file->getClientOriginalName());
-   //$image = Image::make($file)->resize(506,295);
-    $image = Image::make($file);
+   $image = Image::make($file)->resize(350,350);
+   // $image = Image::make($file);
    $image->save($path.'evento_'. time() .$file->getClientOriginalName());
    $event= new Evento();
    $event->nombre = $request->nombre;
@@ -99,7 +100,8 @@ if($codigo == 0){
     return redirect()->action('EventosController@index');
 }
 $imagen = Imagen::first()->where('album_id', $codigo)->get();
-return view('admin.eventos.show')->with(['imagen'=>$imagen,'evento'=>$evento]);
+//dd($imagen);
+return view('template.show')->with(['imagen'=>$imagen,'evento'=>$evento]);
 //$evento = Evento::find($id);
 //$evento = Evento::with('album.imagenes')->get();
 //$evento = Album::orderBy('id','DES')->where('evento_id',$id);

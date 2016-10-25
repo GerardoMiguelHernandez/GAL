@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-	<title>Services</title>
+	<title>Folio</title>
 	<meta charset="utf-8">
 	<link rel="icon" href="img/favicon.ico" type="image/x-icon">
 	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
@@ -15,7 +15,7 @@
   {!! Html::style('kataklimt/css/style.css'); !!}
   {!! Html::style('kataklimt/css/touchTouch.css'); !!}
   {!! Html::style('css/animate.css'); !!}
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
   {!! Html::script('js/mateialize.js'); !!}
   {!! Html::script('kataklimt/js/jquery.js'); !!}
   {!! Html::script('kataklimt/js/superfish.js'); !!}
@@ -24,15 +24,14 @@
   {!! Html::script('kataklimt/js/jquery.easing.1.3.js'); !!}
   {!! Html::script('kataklimt/js/touchTouch.jquery.js'); !!}
   {!! Html::script('js/jssor.slider-21.1.5.mini.js'); !!}
-	
-	<script type="text/javascript">if($(window).width()>1024){document.write("<"+"script src='kataklimt/js/jquery.preloader.js'></"+"script>");}	</script>
+	<script type="text/javascript">if($(window).width()>1024){document.write("<"+"script src='{{asset ('js/jquery.preloader.js')}}></"+"script>");}	</script>
 	<script>		
 		 jQuery(window).load(function() {	
 		 $x = $(window).width();		
 	if($x > 1024)
 	{			
 	jQuery("#content .row").preloader();    }			 
-		
+	 jQuery('.magnifier').touchTouch();
 		 jQuery('.spinner').animate({'opacity':0},1000,'easeOutCubic',function (){jQuery(this).css('display','none')});	
   		  }); 
 					
@@ -65,14 +64,14 @@
             <div class="nav-collapse nav-collapse_  collapse">
                   <ul class="nav sf-menu">
                 <li><a href="index.html">About</a></li>
-                <li class="sub-menu active"><a href="index-1.html">Services</a>
+                <li class="sub-menu"><a href="index-1.html">Services</a>
                       <ul>
                     <li><a href="#">Dolore </a></li>
                     <li><a href="#">Consecte</a></li>
                     <li><a href="#">Conseq</a></li>
                   </ul>
                     </li>
-                <li><a href="index-2.html">Folio</a></li>
+                <li class="active"><a href="index-2.html">Folio</a></li>
                 <li><a href="index-3.html">Blog</a></li>
                 <li><a href="index-4.html">Contact</a></li>
               </ul>
@@ -83,29 +82,22 @@
         </div>
   </div>
     </header>
-<div class="bg-content"> 
-      
-      <!--============================== content =================================-->
-      
+<div class="bg-content">       
+  <!--============================== content =================================-->      
       <div id="content"><div class="ic">More Website Templates @ TemplateMonster.com. November19, 2012!</div>
     <div class="container">
           <div class="row">
         <article class="span12">
-              <h3>Services</h3>
-            </article>
+        <h2>{{$evento->nombre}}</h3>
+        <br><h5>{{$evento->descripcion}}</h5>
+        <br><h5>{{$evento->fecha}}</h5>
+         </article>
         <div class="clear"></div>
-        <ul class="thumbnails thumbnails-1 list-services">
-            
-           @foreach($eventos as $allevento)
-              <li class="span4">
-            <div class="thumbnail thumbnail-1"> <img  src="/uploads/{{$allevento->imagen}}" alt="">
-                  <section> <a href="{{route('eventos.show', $allevento->id)}}" class="link-1">{{$allevento->nombre}}</a>
-                <p>Categoria:{{$allevento->categoria->November19}}</p>
-              </section>
-                </div>
-          </li>
+         <ul class="portfolio clearfix">   
+         @foreach($imagen as $img)        
+          <li class="box"><a href="/nueva/{{$img->imagen}}" class="magnifier" ><img alt="" src="/uploads/{{$img->imagen}}"></a></li> 
           @endforeach
-            </ul>
+            </ul> 
       </div>
         </div>
   </div>
@@ -120,7 +112,7 @@
           <li><a class="icon-3" href="#"></a></li>
           <li><a class="icon-4" href="#"></a></li>
         </ul>
-    <div class="privacy pull-left">Website Template designed by <a href="http://www.templatemonster.com/" target="_blank" rel="nofollow">TemplateMonster.com</a> </div>
+    <div class="privacy pull-left">Galeria fotografica</div>
   </div>
     </footer>
 <script type="text/javascript" src="js/bootstrap.js"></script>

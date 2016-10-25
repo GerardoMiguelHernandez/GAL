@@ -91,14 +91,14 @@
     <div class="container">
           <div class="row">
         <article class="span12">
-              <h3>Services</h3>
+              <h3>{{$centro->nombre}}</h3>
             </article>
         <div class="clear"></div>
         <ul class="thumbnails thumbnails-1 list-services">
             
-           @foreach($eventos as $allevento)
+           @foreach($event as $allevento)
               <li class="span4">
-            <div class="thumbnail thumbnail-1"> <img  src="/uploads/{{$allevento->imagen}}" alt="">
+            <div class="thumbnail thumbnail-1"> <img  src="/uploads/{{$allevento->nombre}}" alt="">
                   <section> <a href="{{route('eventos.show', $allevento->id)}}" class="link-1">{{$allevento->nombre}}</a>
                 <p>Categoria:{{$allevento->categoria->November19}}</p>
               </section>

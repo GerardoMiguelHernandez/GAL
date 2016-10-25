@@ -237,17 +237,17 @@
             <a class="btn btn-navbar btn-navbar_" data-toggle="collapse" data-target=".nav-collapse_">Menu <span class="icon-bar"></span> </a>
             <div class="nav-collapse nav-collapse_  collapse">
                   <ul class="nav sf-menu">
-                <li class="active"><a href="index.html">About</a></li>
-                <li class="sub-menu"><a href="index-1.html">Services</a>
+                <li class="active"><a href="index.html">Home</a></li>
+                <li class="sub-menu"><a href="index-1.html">Centros</a>
                       <ul>
-                    <li><a href="#">Dolore </a></li>
-                    <li><a href="#">Consecte</a></li>
-                    <li><a href="#">Conseq</a></li>
+                      @foreach($centricos as $centrico)
+                    <li><a href="{{route('centros.show', $centrico->id)}}">{{$centrico->nombre}}</a></li>
+                    @endforeach
                   </ul>
                     </li>
-                <li><a href="#">Eventos</a></li>
-                <li><a href="index-3.html">Blog</a></li>
-                <li><a href="index-4.html">Contact</a></li>
+                <li><a href="{{route('eventos.index')}}">Eventos</a></li>
+                <li><a href="index-3.html">Login</a></li>
+                
               </ul>
                 </div>
           </div>
@@ -268,7 +268,7 @@
             <div style="position:absolute;display:block;background:url('/img/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
         </div>
         <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 240px; width: 720px; height: 480px; overflow: hidden;">
-        @foreach($alleventos as $allevento)
+        @foreach($even as $allevento)
 
             <div data-p="150.00" style="display: none;">
                 <img data-u="image" src="/uploads/{{$allevento->imagen}}" />
@@ -297,7 +297,7 @@
         <div class="block-slogan">
               <h2>Bienvenido!</h2>
               <div>
-            <p><a href="http://blog.templatemonster.com/free-website-templates/ " target="_blank" class="link-1">Click here</a> for more info about this free website template created by TemplateMonster.com. This is a Bootstrap template that goes with several layout options (for desktop, tablet, smartphone landscape and portrait) to fit all popular screen resolutions. The PSD source files of this template are available for free for the registered members of TemplateMonster.com. Feel free to get them!</p>
+            <!--<p><a href="http://blog.templatemonster.com/free-website-templates/ " target="_blank" class="link-1">Click here</a> for more info about this free website template created by TemplateMonster.com. This is a Bootstrap template that goes with several layout options (for desktop, tablet, smartphone landscape and portrait) to fit all popular screen resolutions. The PSD source files of this template are available for free for the registered members of TemplateMonster.com. Feel free to get them!</p>-->
           </div>
             </div>
       </div>
@@ -313,7 +313,7 @@
               <ul class="thumbnails thumbnails-1">
             
            
-          @foreach($sliders as $eventico)
+          @foreach($eventicos as $eventico)
             <li class="span3">
                   <div class="thumbnail thumbnail-1">
                 <h3 class="title-1 extra">{{$eventico->nombre}}</h3>
@@ -331,25 +331,21 @@
     <div class="container">
           <div class="row">
         <article class="span6">
-              <h3>Shortly about me</h3>
+              <h3>Sobre la galeria...</h3>
               <div class="wrapper">
-            <figure class="img-indent"><img src="kataklimt/img/page1-img5.jpg " alt="" /></figure>
+            <figure class="img-indent"><img src="uploads/{{$primero->imagen}}" alt="" /></figure>
             <div class="inner-1 overflow extra">
-                  <div class="txt-1">Sed ut perspictis unde omnis natus error volupatem accusantium doloue laudantium, totam rem.</div>
-                  Aperiam, eaque ipsa quae ab illo  veritatis et beatae vitae dicta sunt explicabo nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed
+                  <div class="txt-1">En el sitio web se muestran las fotografias de los eventos
+                  que se han realizado en la empresa.</div>
+                  Estan reunidas conforme a una categoria establecida, y muestran en la pagina 
+                  principal los ultimos eventos
+                  realizados.
                   <div class="border-horiz"></div>
                   <div class="overflow">
                 <ul class="list list-pad">
-                      <li><a href="#">Campaigns</a></li>
-                      <li><a href="#">Portraits</a></li>
-                      <li><a href="#">Fashion</a></li>
-                      <li><a href="#">Fine Art</a></li>
-                    </ul>
-                <ul class="list">
-                      <li><a href="#">Advertising</a></li>
-                      <li><a href="#">Lifestyle</a></li>
-                      <li><a href="#">Love story</a></li>
-                      <li><a href="#">Landscapes</a></li>
+                @foreach($categoria as $cate)
+                      <li><a href="{{route('categoria.show', $cate->id)}}">{{$cate->nombre}}</a></li>
+                      @endforeach
                     </ul>
               </div>
                 </div>
@@ -379,7 +375,7 @@
           <li><a class="icon-3" href="#"></a></li>
           <li><a class="icon-4" href="#"></a></li>
         </ul>
-    <div class="privacy pull-left">Website Template designed by <a href="http://www.templatemonster.com/" target="_blank" rel="nofollow">TemplateMonster.com</a> </div>
+    <div class="privacy pull-left">Galeria Fotografica </div>
   </div>
     </footer>
 <script type="text/javascript" src="js/bootstrap.js"></script>
