@@ -1,29 +1,37 @@
 
-<footer class="page-footer teal">
+<footer class="page-footer teal lighten-1">
     <div class="container">
       <div class="row">
         <div class="col l6 s12">
-          <h5 class="white-text">Company Bio</h5>
-          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+          <h5 class="white-text">Galeria</h5>
+          <p class="grey-text text-lighten-4">Galeria de Evidencias con informacion visual de cada evento realizado en CFE Zona Oaxaca.</p>
 
 
         </div>
         <div class="col l3 s12">
-          <h5 class="white-text">Settings</h5>
+          <h5 class="white-text">Escribenos</h5>
           <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
+            <li><a class="white-text" href="#!">correo1@gmail.com</a></li>
+            <li><a class="white-text" href="#!">correo1@gmail.com</a></li>
+           
           </ul>
         </div>
         <div class="col l3 s12">
-          <h5 class="white-text">Connect</h5>
+          <h5 class="white-text"></h5>
           <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
+            
+            <div class="row">
+              <div class="col s4">
+                <i class="fa fa-facebook-square fa-4x" style="color:blue;" aria-hidden="true"></i>
+              </div>
+              <div class="col s4">
+                <i class="fa fa-whatsapp fa-4x" aria-hidden="true" style="color:blue;"></i>
+
+              </div>
+              <div class="col s4">
+                <i class="fa fa-twitter fa-4x" aria-hidden="true" style="color:blue;"></i>
+              </div>
+            </div>
           </ul>
         </div>
       </div>

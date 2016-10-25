@@ -1,6 +1,4 @@
 @extends('galeria.main')
-
-
 @section('css')
 <style>
         /* jssor slider arrow navigator skin 05 css */
@@ -12,6 +10,7 @@
         .jssora05l.jssora05ldn      (mousedown)
         .jssora05r.jssora05rdn      (mousedown)
         */
+
         .jssora05l, .jssora05r {
             display: block;
             position: absolute;
@@ -110,6 +109,8 @@
     </style>
 @endsection
 @section('content')
+<div class="row">
+    <div class="col s12 m12 l12">
   <div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 960px; height: 480px; overflow: hidden; visibility: hidden; background-color: #24262e;">
         <!-- Loading Screen -->
         <div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
@@ -142,7 +143,8 @@
         <span data-u="arrowleft" class="jssora05l" style="top:158px;left:248px;width:40px;height:40px;" data-autocenter="2"></span>
         <span data-u="arrowright" class="jssora05r" style="top:158px;right:8px;width:40px;height:40px;" data-autocenter="2"></span>
     </div>
-
+</div>
+</div>
 
 
 <div class="row">

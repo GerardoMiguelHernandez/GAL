@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Album;
 use App\Imagen;
+use Carbon\Carbon;
 use Intervention\Image\ImageManagerStatic as Image;
 
 class AlbumController extends Controller
@@ -16,9 +17,19 @@ class AlbumController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+     Carbon::setlocale('es');   
+    }
     public function index()
     {
         //
+
+      $album = Album::orderBy('created_at','DES')->get();
+      return view('admin.albums.index')->with('album',$album);
+
+
     }
 
     /**
@@ -43,14 +54,15 @@ class AlbumController extends Controller
 
       $file =$request->file('imagen');
       $path = public_path().'/uploads/';
+      $path1 = public_path().'/thumbnails/';
    //$image->save($path.$file->getClientOriginalName());
    $image = Image::make($file)->resize(506,295);
     //$image = Image::make($file);
-   $image->save($path.'event_'.$file->getClientOriginalName());
+   $image->save($path.'album_'. time() .$file->getClientOriginalName());
    $album= new Album();
    $album->nombre = $request->nombre;
    $album->descripcion =$request->descripcion;
-   $album->imagen= $file->getClientOriginalName();
+   $album->imagen= 'album_'. time() .$file->getClientOriginalName();
    $album->evento_id=$request->evento_id;
    $album->save();
 
@@ -67,8 +79,10 @@ foreach($files as $fil){
 $imagen = new Imagen();
                 $image1 = Image::make($fil)->resize(506,295);
                // $fileName = $file->getClientOriginalName();
-                $image1->save($path.'imagen_'.$fil->getClientOriginalName());
-                $imagen->imagen=$fil->getClientOriginalName();
+                $image2 = Image::make($fil)->resize(120,87);
+                $image2->save($path1.'imagen_'. time() .$fil->getClientOriginalName());
+                $image1->save($path.'imagen_'. time() .$fil->getClientOriginalName());
+                $imagen->imagen='imagen_'.time().$fil->getClientOriginalName();
                 $imagen->album_id=$codigo;
                 $imagen->save();
                 //$file->move($path, $fileName);
@@ -76,7 +90,7 @@ $imagen = new Imagen();
 
             }  
  
-
+return redirect()->action('WelcomeController@index');  
 
        // dd($request->all());
     }
@@ -90,6 +104,29 @@ $imagen = new Imagen();
     public function show($id)
     {
         //
+
+    
+
+
+        $album = Album::find($id);
+        //dd($album);
+ 
+      
+    
+    $codigo= $album->id;
+$imagenes = Imagen::where('album_id',$codigo)->get();
+ return view('admin.albums.show')->with(['album'=>$album,'imagenes'=>$imagenes]);
+
+       /*
+        $codigo;
+        foreach ($album as $alb) {
+           
+            $codigo=$alb->id;
+        }
+
+        $imagenes = Imagen::where('album_id',$codigo)->get();
+
+        return view('admin.albums.show')->with(['album'=>$album,'imagenes'=>$imagenes]);*/
     }
 
     /**
@@ -101,6 +138,10 @@ $imagen = new Imagen();
     public function edit($id)
     {
         //
+
+
+        $album = Album::find($id);
+        return view('admin.albums.edit')->with('album',$album);
     }
 
     /**
@@ -113,6 +154,20 @@ $imagen = new Imagen();
     public function update(Request $request, $id)
     {
         //
+ $file =$request->file('imagen');
+ $path = public_path().'/uploads/';
+
+$image = Image::make($file);
+   $image->save($path.'album_'. time() .$file->getClientOriginalName());
+        $album  = Album::find($id);
+        $album->nombre = $request->nombre;
+   $album->descripcion =$request->descripcion;
+   $album->imagen= 'album_'. time() .$file->getClientOriginalName();
+   $album->evento_id=$request->evento_id;
+   $album->save();
+   return redirect()->action('AlbumController@index');
+
+
     }
 
     /**
@@ -123,6 +178,15 @@ $imagen = new Imagen();
      */
     public function destroy($id)
     {
+
+
+
+        $album = Album::find($id);
+        $album->delete();
+        return redirect()->action('AlbumController@index');
+
+
+
         //
     }
 }

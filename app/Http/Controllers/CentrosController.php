@@ -16,6 +16,12 @@ class CentrosController extends Controller
     public function index()
     {
         //
+
+      $centros = CentroModel::orderBy('created_at','DES')->get();
+      return view('admin.centros.index')->with(['centros'=>$centros]);
+
+
+
     }
 
     /**
@@ -45,6 +51,7 @@ $centro->codigoPostal=$request->telefono;
 $centro->responsable=$request->responsable;
 $centro->save();
  //       dd($request->all());
+return redirect()->action('WelcomeController@index');  
    
  }
 
@@ -91,5 +98,11 @@ $centro->save();
     public function destroy($id)
     {
         //
+
+     $centro_eliminar = CentroModel::find($id);
+     $centro_eliminar->delete();
+     return redirect()->action('CentrosController@index');
+
+
     }
 }

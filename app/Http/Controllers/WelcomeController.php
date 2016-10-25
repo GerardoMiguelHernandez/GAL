@@ -31,8 +31,8 @@ $count_users = User::all()->count();
 $count = Evento::all()->count();
 $count_albums = Album::all()->count();
 $count_imagenes = Imagen::all()->count();
-$albumns = Album::with('imagenes')->orderBy('created_at','DES')->skip(1)->take(2)->get();
-$imagenes = Imagen::orderBy('created_at','DES')->skip(1)->take(4)->get();
+$albumns = Album::with('imagenes')->orderBy('created_at','DES')->take(6)->get();
+$imagenes = Imagen::orderBy('created_at','DES')->skip(1)->take(6)->get();
 $eventicos = Evento::orderBy('created_at')->skip(1)->take(4)->get();
 $count_centros =CentroModel::all()->count();
 $even = Evento::orderBy('created_at','DES')->get();
@@ -50,6 +50,10 @@ $collection = collect(['center-align', 'left-align','right-align']);
         //
     }
 
+public function eventos(){
+
+    return view('template.eventos');
+}
     /**
      * Store a newly created resource in storage.
      *

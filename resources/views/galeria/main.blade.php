@@ -6,7 +6,8 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
 
-  {!! Html::style('css/least.min.css'); !!}
+  {!! Html::style('css/animations.css'); !!}
+   {!! Html::style('css/least.min.css'); !!}
 	<link rel="stylesheet" href="{{ asset('css/materialize.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/index.css') }}">
 <link rel="stylesheet" href="{{ asset('css/font-awesome.css') }}">
@@ -17,7 +18,7 @@
 
 </head>
 
-<body style="background-image: url('img/swirl_pattern.png');">
+<body style="background-image: url('img/asanoha-400px.png');">
 	<header>
 	@yield('css')
 </header>
@@ -45,24 +46,17 @@
 	<script src="{{ asset('js/materialize.js') }}"></script>
   <script src="{{ asset('js/fotorama.js') }}"></script>
   {!! Html::script('js/dropzone.js'); !!}
-
+ {!! Html::script('js/css3-animate-it.js'); !!}
   {!! Html::script('js/least.js'); !!}
+  
 	<script type="text/javascript">
 		
 		 $(document).ready(function(){
       $('.slider').slider({full_width: true});
       $('select').material_select();
+$('.modal-trigger').leanModal();
 
-  $('.modal-trigger').leanModal({
-      dismissible: true, // Modal can be dismissed by clicking outside of the modal
-      opacity: .5, // Opacity of modal background
-      in_duration: 300, // Transition in duration
-      out_duration: 200, // Transition out duration
-      starting_top: '4%', // Starting top style attribute
-      ending_top: '10%', // Ending top style attribute
-      
-    }
-  );
+ 
     });
 
      $('.datepicker').pickadate({

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Imagen;
+use Carbon\Carbon;
 
 class ImagesController extends Controller
 {
@@ -13,9 +15,21 @@ class ImagesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+     Carbon::setlocale('es');   
+    } 
+
     public function index()
     {
         //
+
+
+       $imagen = Imagen::all();
+       return view('admin.imagenes.index')->with('imagen',$imagen);
+
+
     }
 
     /**
@@ -37,6 +51,11 @@ class ImagesController extends Controller
     public function store(Request $request)
     {
         //
+
+        
+
+
+        
     }
 
     /**

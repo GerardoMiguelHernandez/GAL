@@ -1,17 +1,66 @@
-<div class="fixed-action-btn" style="bottom: 45px;right: 24px;">
+<div class="fixed-action-btn " style="bottom: 45px;right: 24px;">
       <a href="#" class="btn-floating btn-large light-blue">
         <i class="large material-icons">add</i>
       </a>
       <ul>
-      <li><a href="#" class="btn-floating red btn tooltipped modal-trigger" data-position="left" data-delay="50" data-tooltip="Agregar Evento"> <i class="material-icons">insert_chart</i></a></li>
+     <li><a href="#modal5" class="btn-floating red btn tooltipped modal-trigger" data-position="left" data-delay="50" data-tooltip="Agregar Imagen"> <i class="material-icons">insert_chart</i></a></li>
 
-      <li><a href="#modal4" class="btn-floating blue btn tooltipped modal-trigger" data-position="left" data-delay="50" data-tooltip="Agregar Categoria"> <i class="material-icons">format_quote</i></a></li>
+      <li><a href="#modal4" class="btn-floating blue btn tooltipped modal-trigger" data-position="left" data-delay="50" data-tooltip="Agregar Album"> <i class="material-icons">format_quote</i></a></li>
       <li><a href="#modal3" class="btn-floating green btn tooltipped modal-trigger" data-position="left" data-delay="50" data-tooltip="Agregar Evento"> <i class="material-icons">publish</i></a></li>
       <li><a href="#modal2" class="btn-floating yellow btn tooltipped modal-trigger" data-position="left" data-delay="50" data-tooltip="Agregar Centro"><i class="material-icons">attach_file</i></a></li>
 
       <li><a href="#modal1" class="btn-floating yellow btn tooltipped modal-trigger" data-position="left" data-delay="50" data-tooltip="Agregar Categoria"><i class="material-icons">account_box</i></a></li>
 </ul>
     </div>
+
+
+
+
+    <div id="modal5" class="modal transparent">
+    <div class="modal-content">
+      
+
+<div class="page-login">
+  <div class="center">
+      <div class="card z-depth-5" style="margin:0% auto; max-width:400px;">
+        <div class="card-header">
+        
+           <i class="material-icons medium orange600">menu</i>
+
+        </div>
+        <div class="card-content">
+          
+           {!! Form::open(['route'=>'imagen.store','method'=>'POST'])!!}
+          {{ csrf_field() }}
+          
+            <div class="fallback">               
+    <input type="file" class="dropzone" id="my-dropzone" name="file[]" value="" multiple>
+    
+    <div class="dropzone-previews"></div>
+   </div>
+            <div class="input-field col s12">
+              <input id="descripcion" type="text" name="descripcion" class="validate">
+              <label for="descripcion" class="center">Descripcion</label>
+            </div>
+             <div class="input-field col s12">
+                <select name="album_id">
+                    <option disabled selected>Album</option>
+                    @foreach($albums as $al)
+                    <option value="{{$al->id}}">{{$al->nombre}}</option>
+                    @endforeach
+                </select>
+                <label>Elige Album</label>
+            </div>
+            <br>
+              <button type="submit" id="categoria" class="btn-floating btn-large waves-effect waves-light red center"><i class="material-icons">add</i></button>
+         {!! Form::close() !!}
+        </div>
+        
+      </div>
+    </div>
+    </div>
+    
+  </div></div>
 
     <div id="modal1" class="modal transparent">
     <div class="modal-content">

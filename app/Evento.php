@@ -21,4 +21,11 @@ return $this->belongsTo('App\Album');
 public function categoria(){
 return $this->hasOne('App\Categoria','id','categoria_id');
 }
+
+public function scopeSearch($query,$nombre){
+    if(trim($nombre)!=""){
+    return $query->where('nombre','LIKE',"%$nombre%");
+}
+   }
+
 }

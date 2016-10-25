@@ -15,5 +15,10 @@ public function album(){
 
 return $this->belongsTo('App\Album');
 }
+public function scopeSearch($query,$nombre){
+    if(trim($nombre)!=""){
+    return $query->where('imagen','LIKE',"%$nombre%");
+}
+   }
 
 }

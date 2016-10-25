@@ -1,11 +1,8 @@
-@extends('admin.main')
-@section('css')
-
+<link href="{{ asset('css/materialize.css') }}" rel="stylesheet">
 <link href="{{ asset('css/index.css') }}" rel="stylesheet">
 <link href="{{ asset('css/font-awesome.css') }}" rel="stylesheet">
 <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-@endsection
-@section('content')
+
 <!--
 <div class="container">
     <div class="row">
@@ -109,10 +106,9 @@
       </div>
     </div>
   <!--  Scripts-->
-  
+  <script type="text/javascript" src="{{asset('js/jquery.min.js')}}"></script>
+  <script type="text/javascript" src="{{asset('js/materialize.js')}}"></script>
   <script type="text/javascript">
     $(".button-collapse").sideNav();
   </script>
   </div>
-
-@endsection
